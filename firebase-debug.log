@@ -1,0 +1,121 @@
+[debug] [2022-11-18T19:42:30.608Z] ----------------------------------------------------------------------
+[debug] [2022-11-18T19:42:30.612Z] Command:       /usr/local/bin/firebase /home/cossack/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy --only hosting:dndtinder
+[debug] [2022-11-18T19:42:30.613Z] CLI Version:   11.6.0
+[debug] [2022-11-18T19:42:30.613Z] Platform:      linux
+[debug] [2022-11-18T19:42:30.613Z] Node Version:  v16.16.0
+[debug] [2022-11-18T19:42:30.622Z] Time:          Fri Nov 18 2022 12:42:30 GMT-0700 (Mountain Standard Time)
+[debug] [2022-11-18T19:42:30.623Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-18T19:42:30.640Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-11-18T19:42:30.855Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-18T19:42:30.856Z] > authorizing via signed-in user (taylor@salesprodigy.io)
+[debug] [2022-11-18T19:42:30.856Z] [iam] checking project flinnapps for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-11-18T19:42:30.859Z] > refreshing access token with scopes: []
+[debug] [2022-11-18T19:42:30.862Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-11-18T19:42:30.862Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-18T19:42:34.700Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-11-18T19:42:34.701Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2022-11-18T19:42:34.811Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-11-18T19:42:34.812Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-11-18T19:42:34.872Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/flinnapps:testIamPermissions [none]
+[debug] [2022-11-18T19:42:34.872Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/flinnapps:testIamPermissions x-goog-quota-user=projects/flinnapps
+[debug] [2022-11-18T19:42:34.872Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/flinnapps:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-18T19:42:38.629Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/flinnapps:testIamPermissions 200
+[debug] [2022-11-18T19:42:38.629Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/flinnapps:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-11-18T19:42:38.635Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps [none]
+[debug] [2022-11-18T19:42:43.932Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps 200
+[debug] [2022-11-18T19:42:43.932Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps {"projectId":"flinnapps","projectNumber":"897486070631","displayName":"Flinnapps","name":"projects/flinnapps","resources":{"hostingSite":"flinnapps","realtimeDatabaseInstance":"flinnapps-default-rtdb","storageBucket":"flinnapps.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_09fdf94a-4619-4c42-82b5-f59b66ad6338"}
+[info] 
+[info] === Deploying to 'flinnapps'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-11-18T19:42:43.938Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps [none]
+[debug] [2022-11-18T19:42:50.813Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps 200
+[debug] [2022-11-18T19:42:50.814Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/flinnapps {"projectId":"flinnapps","projectNumber":"897486070631","displayName":"Flinnapps","name":"projects/flinnapps","resources":{"hostingSite":"flinnapps","realtimeDatabaseInstance":"flinnapps-default-rtdb","storageBucket":"flinnapps.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_09fdf94a-4619-4c42-82b5-f59b66ad6338"}
+[debug] [2022-11-18T19:42:50.818Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions [none]
+[debug] [2022-11-18T19:42:50.818Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-11-18T19:42:57.871Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions 200
+[debug] [2022-11-18T19:42:57.871Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions {"name":"projects/897486070631/sites/dndtinder/versions/b11f68103056ea02","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[dndtinder]: beginning deploy... 
+[info] i  hosting[dndtinder]: found 30 files in build 
+[debug] [2022-11-18T19:42:57.900Z] [hosting] uploading with 200 concurrency
+[debug] [2022-11-18T19:42:58.432Z] [hosting] hash cache [YnVpbGQ] stored for 30 files
+[debug] [2022-11-18T19:42:58.433Z] [hosting][hash queue][FINAL] {"max":506,"min":35,"avg":71.56666666666666,"active":0,"complete":30,"success":30,"errored":0,"retried":0,"total":30,"elapsed":520}
+[debug] [2022-11-18T19:42:58.433Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02:populateFiles [none]
+[debug] [2022-11-18T19:42:58.434Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02:populateFiles {"files":{"/asset-manifest.json":"34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed","/favicon.ico":"c599b7a91ab3627e3538125d9f40adc2d4bf949046984262670545dc7738af06","/index.html":"47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868","/logo192.png":"76c449ccb9cd117c2f2338f091b18f7050f3210e249b2228f5c81b23f34377cd","/manifest.json":"0958a5e0c831126100c8c2d06a6bbaa665a3900f21aaff4130238a6f5a113aa1","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/logo512.png":"7779210d56c1f3741e2e487799fe3092def4fa6ac450a60532b807c3a8971205","/static/css/main.09a1effb.css":"7a20ddc980d3fddac0e1baf3761826c24e4a7ccaa4069a8134616f758e82e1a3","/static/css/main.09a1effb.css.map":"d10ee7b7106b0424cfbc2c2dc7f4e03472617f8790da8f9a435f779acddfc6c4","/static/js/main.0dcf7c89.js.LICENSE.txt":"e49fe62f8b2f6971bd3de5fff232f3b34515f0beb6495494004533118b1e4c30","/static/media/EditQuill.1e61ad10081aa6a4ea9f.png":"a25277df81f6982a4385a6c9409db455a40a1375b29ded082b3a0bccbcb1dcb9","/static/media/keep.63055197feb029f63322.png":"9c6ffcc5cba7c9ea437ec50ba74612609e17d562bc90b5bbcbc171ddcce27c54","/static/media/likeheart.afa098a47465a79cb230.png":"051034bd76ef932350730f9fb06b0e35500a35d33551e70892e1bed60e5ba0a9","/static/media/left_arrow.992e5e16260bcb5f6109.png":"274fe4a6f54b0a03a69609dd81d87d947ff78b611fa63edc1230e18ce6d2cbc0","/static/media/right.c32c1d5c4e016858c54d.png":"cce6a64bb2369f0e21e22ccab3e5e52a8401d32b6dbf729fc23a67e0d9db1f70","/static/media/spawnPic.58b8765fc07031d51c7e.png":"781d3167ff44001048d352df1ac5ade79ea8ed837b87c55df8dd19cbb1c10c4a","/static/media/dragon.5fa0636313787466833d.jpg":"81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34","/static/media/InriaSerif-Light.60d7a6a1b1a84d2f5cf9.ttf":"7dd0275e0237b981be17eeea1daa84e43eea524f05ec8c1d77f0991d488cb96d","/static/media/InriaSerif-Bold.6e940239a53050039654.ttf":"de622f57fcaf74902eb85d679fb467fca3aa61387aec8e89910bcf4d6cf5c7de","/static/media/InriaSerif-Regular.f43b3e7fe0caf2aaeade.ttf":"2af6b076760e1042eecbada4a547bae5cffb1825e83db7201e29f9308bad101c","/static/media/rightarrow.56c8eded6de37619da77.png":"5ca36501c29e0263df3f599f8cd315a5761b982c5645cb8f66f4eed996f93c52","/static/media/Luminari-Regular.506cfaeeb78dd715d188.woff":"8ad347436b8b85a65a01ad2fd3f27a67765c3149c2be3944cbdd2bae6db9c3d9","/static/media/mummy.034c2fbc173520bd1438.jpg":"43dbc2b7facf7bf27fdba755b049e3d51f6d3659b40a58837c3328fe5233e18e","/static/media/kraken169-2.7890913933d9a30df75b.jpg":"390979f05c37bc7a95788ac9f8e11aee6d6bd7a7381fd4be5931953bee81c536","/static/media/spawnLogo.d2c9260b65e5b9184185.png":"665a9a60a8bb4b756d67e6ba3236da262487846ccf1ee2b5ed0c9625a6200f3e","/static/media/bongobongo.a649fd3e92a3f3ec7d78.webp":"e07d346ceba1b2ae1f30522085a2d196a0d4c66c1d03dbb4bf89ff7eaeee31ec","/static/js/main.0dcf7c89.js":"2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181","/static/media/beholder.4d39daac4ef298fb83ec.webp":"1501f03c040eefb1e278993c7b7d8e2c5305cf44a3d836ffbd2eda21ddf1a403","/static/media/celestial.00aa36eeb309554dfa56.jpg":"068eff8903145fdc4ec79138e137c2e0097ffa263630194e0e27fc635055ed14","/static/js/main.0dcf7c89.js.map":"9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52"}}
+[debug] [2022-11-18T19:43:03.544Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02:populateFiles 200
+[debug] [2022-11-18T19:43:03.544Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02:populateFiles {"uploadRequiredHashes":["34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed","81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34","2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181","47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868","9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files"}
+[debug] [2022-11-18T19:43:03.547Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed [none]
+[debug] [2022-11-18T19:43:03.547Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed [stream]
+[debug] [2022-11-18T19:43:03.549Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34 [none]
+[debug] [2022-11-18T19:43:03.549Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34 [stream]
+[debug] [2022-11-18T19:43:03.551Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181 [none]
+[debug] [2022-11-18T19:43:03.551Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181 [stream]
+[debug] [2022-11-18T19:43:03.553Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868 [none]
+[debug] [2022-11-18T19:43:03.553Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868 [stream]
+[debug] [2022-11-18T19:43:03.556Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 [none]
+[debug] [2022-11-18T19:43:03.556Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 [stream]
+[debug] [2022-11-18T19:43:03.559Z] [hosting][populate queue][FINAL] {"max":5119,"min":5119,"avg":5119,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":5131}
+[debug] [2022-11-18T19:43:03.560Z] [hosting] uploads queued: 5
+[debug] [2022-11-18T19:43:11.555Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868 200
+[debug] [2022-11-18T19:43:11.555Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/47b938cacbbbfd948be777c3b53c9ab44b730add326cbee10d7ec3e0844dc868 [stream]
+[debug] [2022-11-18T19:43:13.506Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed 200
+[debug] [2022-11-18T19:43:13.507Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/34a602a7229d0c3179a720827d64fdc94e2437a8720d53e0045858334ba4dfed [stream]
+[debug] [2022-11-18T19:43:15.746Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181 200
+[debug] [2022-11-18T19:43:15.747Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/2558722bbe5669f0510d8305ca461ea30b8fe51fe4e109f5d5e148968eb50181 [stream]
+[debug] [2022-11-18T19:43:20.910Z] [uploadQueue] Retrying task 9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52
+[debug] [2022-11-18T19:43:20.912Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 [none]
+[debug] [2022-11-18T19:43:20.912Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 [stream]
+[debug] [2022-11-18T19:43:22.348Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34 200
+[debug] [2022-11-18T19:43:22.348Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/81d56c633497c7fed259ad6549d38c13fe836276d641c71a6ddf99f5bbecdb34 [stream]
+[debug] [2022-11-18T19:44:12.384Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 200
+[debug] [2022-11-18T19:44:12.384Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/dndtinder/versions/b11f68103056ea02/files/9f45b4e737a77c635b0605c232e5a0c01cb38f4022e7887ad66a6c62e4f1de52 [stream]
+[debug] [2022-11-18T19:44:12.384Z] [hosting][upload queue][FINAL] {"max":51473,"min":8010,"avg":20089.6,"active":0,"complete":5,"success":5,"errored":0,"retried":1,"total":5,"elapsed":68839}
+[info] ✔  hosting[dndtinder]: file upload complete 
+[debug] [2022-11-18T19:44:12.387Z] [hosting] deploy completed after 74512ms
+[debug] [2022-11-18T19:44:12.393Z] [
+  {
+    "config": {
+      "site": "dndtinder",
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    "site": "dndtinder",
+    "version": "projects/897486070631/sites/dndtinder/versions/b11f68103056ea02"
+  }
+]
+[info] i  hosting[dndtinder]: finalizing version... 
+[debug] [2022-11-18T19:44:12.396Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02 updateMask=status%2Cconfig
+[debug] [2022-11-18T19:44:12.396Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-11-18T19:44:18.965Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02 200
+[debug] [2022-11-18T19:44:18.967Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/versions/b11f68103056ea02 {"name":"projects/897486070631/sites/dndtinder/versions/b11f68103056ea02","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-18T19:42:56.170204Z","createUser":{"email":"taylor@salesprodigy.io"},"finalizeTime":"2022-11-18T19:44:17.478566Z","finalizeUser":{"email":"taylor@salesprodigy.io"}}
+[debug] [2022-11-18T19:44:18.967Z] [hosting] finalized version for dndtinder:[object Object]
+[info] ✔  hosting[dndtinder]: version finalized 
+[info] i  hosting[dndtinder]: releasing new version... 
+[debug] [2022-11-18T19:44:18.971Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/releases versionName=projects%2F897486070631%2Fsites%2Fdndtinder%2Fversions%2Fb11f68103056ea02
+[debug] [2022-11-18T19:44:18.972Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/releases {"message":null}
+[debug] [2022-11-18T19:44:23.811Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/releases 200
+[debug] [2022-11-18T19:44:23.811Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/897486070631/sites/dndtinder/releases {"name":"projects/897486070631/sites/dndtinder/releases/1668800661726385","version":{"name":"projects/897486070631/sites/dndtinder/versions/b11f68103056ea02","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-18T19:42:56.170204Z","createUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"},"finalizeTime":"2022-11-18T19:44:17.478566Z","finalizeUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"}},"type":"DEPLOY","releaseTime":"2022-11-18T19:44:21.726385801Z","releaseUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"}}
+[debug] [2022-11-18T19:44:23.811Z] [hosting] release: {"name":"projects/897486070631/sites/dndtinder/releases/1668800661726385","version":{"name":"projects/897486070631/sites/dndtinder/versions/b11f68103056ea02","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-11-18T19:42:56.170204Z","createUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"},"finalizeTime":"2022-11-18T19:44:17.478566Z","finalizeUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"}},"type":"DEPLOY","releaseTime":"2022-11-18T19:44:21.726385801Z","releaseUser":{"email":"taylor@salesprodigy.io","imageUrl":"https://lh3.googleusercontent.com/a/ALm5wu3Znx0nDaC2rwSF14QG7wWPNLjAb7sm3pqZ6MXC=mo"}}
+[info] ✔  hosting[dndtinder]: release complete 
+[info] 
+[info] ✔  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/flinnapps/overview
+[info] Hosting URL: https://dndtinder.web.app
+[debug] [2022-11-18T19:44:37.507Z] Error: Timed out.
+    at Timeout.<anonymous> (/home/cossack/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
