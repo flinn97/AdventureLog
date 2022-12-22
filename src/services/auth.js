@@ -24,7 +24,7 @@ class Auth {
             IDlist.push(list[key].getJson()._id)
         }
         let rawData = [];
-        const components = await query(collection(db, "DNDusers", "DNDAPP", "components"), where('owner', '==', email));
+        const components = await query(collection(db, "GMSusers", "GMSAPP", "components"), where('owner', '==', email));
         let comps = await getDocs(components);
         for (const key in comps.docs) {
             let data = comps.docs[key].data()
@@ -39,7 +39,7 @@ class Auth {
         
         let rawData = [];
 
-        const components = await query(collection(db, "DNDusers", "DNDAPP", "components"), where('pic', '==', true));
+        const components = await query(collection(db, "GMSusers", "GMSAPP", "components"), where('pic', '==', true));
         let comps = await getDocs(components);
         for (const key in comps.docs) {
             let data = comps.docs[key].data();
@@ -59,7 +59,7 @@ class Auth {
         for(const key in comments){
             IDlist.push(comments[key].getJson()._id)
         }
-        const components = await query(collection(db, "DNDusers", "DNDAPP", "components"), where('picOwner', '==', id));
+        const components = await query(collection(db, "GMSusers", "GMSAPP", "components"), where('picOwner', '==', id));
         let comps = await getDocs(components);
         for (const key in comps.docs) {
             let data = comps.docs[key].data();
@@ -78,7 +78,7 @@ class Auth {
         for(const key in users){
             IDlist.push(users[key].getJson()._id)
         }
-        const components = await query(collection(db, "DNDusers", "DNDAPP", "components"), where('_id', '==', id));
+        const components = await query(collection(db, "GMSusers", "GMSAPP", "components"), where('_id', '==', id));
         let comps = await getDocs(components);
         for (const key in comps.docs) {
             let data = comps.docs[key].data();
@@ -98,7 +98,7 @@ class Auth {
         for(const key in follow){
             IDlist.push(follow[key].getJson()._id);
         }
-        const components = await query(collection(db, "DNDusers", "DNDAPP", "components"), where('followID', '==', id));
+        const components = await query(collection(db, "GMSusers", "GMSAPP", "components"), where('followID', '==', id));
         let comps = await getDocs(components);
         for (const key in comps.docs) {
             let data = comps.docs[key].data();
@@ -198,7 +198,7 @@ class Auth {
      */
     async dispatch(obj, email) {
 
-        //debugger
+        debugger
         for (const key in obj) {
             let operate = obj[key];
             for (let i = 0; i < operate.length; i++) {
@@ -208,13 +208,13 @@ class Auth {
                 switch (key) {
                     case "add":
                         component.collection = email;
-                        await setDoc(doc(db, 'DNDusers', "DNDAPP", 'components', component._id), component);
+                        await setDoc(doc(db, 'GMSusers', "GMSAPP", 'components', component._id), component);
                         break;
                     case "del":
-                        await deleteDoc(doc(db, 'DNDusers', "DNDAPP", 'components', component));
+                        await deleteDoc(doc(db, 'GMSusers', "GMSAPP", 'components', component));
                         break;
                     case "update":
-                        await updateDoc(doc(db, 'DNDusers', "DNDAPP", 'components', component._id), component);
+                        await updateDoc(doc(db, 'GMSusers', "GMSAPP", 'components', component._id), component);
                         break;
                 }
 

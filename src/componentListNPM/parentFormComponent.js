@@ -57,6 +57,7 @@ class ParentFormComponent extends Component {
     async prepareOnClick(){
         
         if(this.props.prepareOnClick && this.props.app){
+            debugger
             let obj =  this.props.obj;
             if(obj){
              obj = this.isArray(obj)

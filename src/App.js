@@ -1,17 +1,22 @@
 import './App.css';
 import { Component } from 'react';
 
-import picservice from './services/picservice';
-import Auth from './services/auth';
-import Factory from './models/myComponents';
-import Opps from './models/operationsFactory';
+
 import Dispatch from './dispatch';
 import ComponentListInterface from './componentListNPM/componentListInterface';
 import auth from './services/auth';
-import Feed from './view/feed';
 import Logo from './pics/spawnLogo.png'
 
 import styleService from './services/styleService';
+import Character from './view/character';
+import CharacterJournal from './view/characterJournal';
+import CharacterStrategy from './view/characterStrategy';
+import Lore from './view/lore';
+import AdventureLog from './view/adventureLog';
+import NavThemeFactory from './componentListNPM/themes/navThemes/navThemeFactory';
+import ThemeFactory from './componentListNPM/themes/themeFactory';
+import Register from './componentListNPM/register';
+import Login from './componentListNPM/componentForms/login';
 //fonts
 
 
@@ -30,9 +35,12 @@ export default class App extends Component {
       componentListInterface: new ComponentListInterface(this.dispatch),
       componentList: undefined,
       currentCharacter: undefined,
-      
+      themeFactory: new ThemeFactory(),
+      navFactory: new NavThemeFactory(),
+      navType:"topBar",
       // switchcase: "home",
-      
+      defaultTheme: "legato",
+      globalTheme: "",
       login : true,
       
       
@@ -45,15 +53,24 @@ export default class App extends Component {
       
       backendUpdate:[],
       backend: false,
-      myswitch: "home",
+      // myswitch: "home",
+      switchCase:[
+        {path:"/", comp:Character, name: "Home" },
+        {path: "/log", comp:AdventureLog, name: "Adventure Log"},
+        {path: "/journal", comp:CharacterJournal, name: "Character Journal"},
+        {path: "/lore", comp:Lore, name:"GM Lore"},
+        {path:"/strategy", comp:CharacterStrategy, name: "Character Strategy" },
+
+      ]
+
 
     }
   }
 
   async componentDidUpdate(props, state){
     if(this.state.backend){
-      // await this.setState({backend: false});
-      // auth.dispatch(this.state.backendUpdate, this.state.email);
+      await this.setState({backend: false});
+      auth.dispatch(this.state.backendUpdate, this.state.email);
     }
     
     if(this.state.operate!==undefined){
@@ -97,42 +114,24 @@ handleChange = (event) => {
         await this.setState({
           componentList:list
         })
-        // let user = await Auth.getuser("admin@gmail.com", null, componentList);
-        // await this.setState({
-        //   email: "admin@gmail.com",
-        //   user: user
-        // })
-        // // let pic =picservice.randomizepics(user.components.getCom, "monsters");
-        // this.setState({
-        //   pic: user.components.getList('monsters')[0],
-        //   // recentpics: picservice.savepic(this.state, pic)
-        // })
-    }
-  //debugger
-    
-    // let user = await auth.getCurrentUser();
-    // if(user){
-    //   user = JSON.parse(user);
-    //   let email = user.email
-    //   await auth.getuser(user.email, list);
-    //   user = list.getComponent('user')
       
-    //   this.setState({
-    //     user: user,
-    //     login: true,
-    //     register:false,
-    //     email:email
-    //   })
-  // }
+    }
+
     
 
-    const FontFace = () => {
-      return(
-          <div className="card">
-              <span className="font-face"></span>
-          </div>
-      )
-    };
+  if(this.state.navFactory){
+    let f = this.state.navFactory.getNavThemeFactory();
+    let styles = f["defaultTopNav"];
+    
+    this.setState({navStyles:styles, linkStyleDefault: styles?.link});
+
+  }
+  if(this.state.themeFactory){
+    let f = this.state.themeFactory.getThemeFactory();
+    let styles = f[this.state.globalTheme!==""? this.state.globalTheme: this.state.defaultTheme!==""? this.state.defaultTheme: "default"];
+    
+    this.setState({styles:styles});
+  }
     
     
   }
@@ -148,8 +147,7 @@ handleChange = (event) => {
       display:"flex", 
       
       zIndex:"100",
-      fontFamily: styles.fonts.appFont, 
-      background: styles.colors.White1,
+
        
       flexDirection:"column"}}>
         
@@ -157,18 +155,16 @@ handleChange = (event) => {
       <div style={{
         
         width: "100vw",
-        height: styles.logoTop.stripHeight, 
-        background: styles?.colors.Red1,
+       
         }}>
-      <img style={{
-        height: styles.logoTop.imgHeight,
-        width: styles.logoTop.imgWidth,
-        marginLeft: styles.logoTop.marginLeft,
-        marginBottom: styles.logoTop.marginBottom,
-        marginTop: styles.logoTop.marginTop,
+      </div>
+      {this.state.login && <div onClick={()=>{this.setState({login:false, registerPage:true})}}>Register</div>}
+      {this.state.registerPage && <div onClick={()=>{this.setState({login:true, registerPage:false})}}>Login</div>}
 
-        }} src={Logo}/></div>
-      <Dispatch app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />
+      {this.state.login && <Login app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}
+      {this.state.registerPage && <Register app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}
+
+      {(!this.state.login && !this.state.registerPage) &&<Dispatch app={{run:this.run, state:this.state, handlechange:this.handleChange, dispatch:this.dispatch, factory:this.factory}} />}
     </div>
   )}
 }

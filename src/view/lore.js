@@ -26,7 +26,8 @@ export default class Lore extends Component {
 
     return (
       <div style={{width:"100vw", paddingTop: "10px"}}>
-          
+        <div style={{cursor:"pointer"}} onClick={()=>{dispatch({myswitch: "gameAdd"})}} >Add Character To Game</div>
+          MORE TO COME ON THIS PAGE!
           <LogMap app={app} name="gmLog" />
       </div>
     )

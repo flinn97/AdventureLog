@@ -27,7 +27,7 @@ export default class AdventureLog extends Component {
 
     return (
       <div style={{width:"100vw", paddingTop: "10px"}}>
-          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addadventureLog"}} obj={{owner: "123", type:"adventureLog"}} />
+          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addadventureLog"}} obj={{owner:state?.user?.getJson()._id, type:"adventureLog"}} />
           <RunButton app={app} />
           <div >{list?.map((log, index)=>
           

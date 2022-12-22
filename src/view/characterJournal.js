@@ -25,7 +25,7 @@ export default class CharacterJournal extends Component {
 
     return (
       <div style={{width:"100vw", paddingTop: "10px"}}>
-          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addjournalLog"}} obj={{owner: "123", type:"journalLog"}} />
+          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addjournalLog"}} obj={{owner: state.user?.getJson()?._id, type:"journalLog"}} />
           <RunButton app={app} />
           <LogMap app={app} name="journalLog" />
       </div>

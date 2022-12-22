@@ -26,7 +26,7 @@ export default class CharacterStrategy extends Component {
 
     return (
       <div style={{width:"100vw", paddingTop: "10px"}}>
-          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addstrategyLog"}} obj={{owner: "123", type:"strategyLog"}} />
+          <ParentFormComponent style={{height:"200px", border:"1px solid black"}} type="richEditor" name="html" app={app} prepareOnClick={{operation: "cleanJsonPrepare", operate:"addstrategyLog"}} obj={{owner: state?.user?.getJson()?._id, type:"strategyLog"}} />
           <RunButton app={app} />
           <LogMap app={app} name="strategyLog" />
       </div>

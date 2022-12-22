@@ -1,12 +1,13 @@
 import './App.css';
 import { Component } from 'react';
-import Home from './view/home';
 import Nav from './view/nav.js';
-import Login from './view/login';
-import Register from './view/register';
+import Upload from './view/upload';
+
 import './index.css';
-import DeletePopup from './view/deletePopup';
-import KeepDel from './view/keepDelete';
+
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import GameConnect from './view/gameConnectPopup';
+import TopNav from './view/TopNav';
 
 
 //model
@@ -21,26 +22,36 @@ export default class Dispatch extends Component {
     let app = this.props.app;
     let state = app.state;
     let styles =state.styles;
+    let dispatch=app.dispatch;
   return (
+
+        <BrowserRouter>
+        {state.myswitch==="upload" &&<Upload app={app} handleClose={()=>{dispatch({myswitch:""})}}/>}
+        {state.myswitch==="gameAdd" &&<GameConnect app={app} handleClose={()=>{dispatch({myswitch:""})}}/>}
+
     <div style={{
       width:"100%", 
       height:"96vh",
-      fontFamily: styles.fonts.fontNormal,
       }}>
+        
 
-      {/* {!app.state.user?(<div>{app.state.registerPage?(<Register app={app}/>):(<Login app={app}/>)}</div>):(
-       <div style={{
-        width:"100%", 
-        height:"100%", 
-        display:"flex", 
-        flexDirection:"row"}}>
 
-          {state.popupSwitch==="del" && <DeletePopup app={app} objForDelete={state.objForDelete} handleClose={app.dispatch.bind(this,{popupSwitch:"", objForDelete:undefined})}/>}
-          {state.popupSwitch==="keepDel" && <KeepDel app={app} objForDelete={state.objForDelete} handleClose={app.dispatch.bind(this,{popupSwitch:"", objForDelete:undefined})}/>} */}
-
+      <TopNav app={app} />
      <Nav app={app}/> 
-     <Home app={app}/> </div>
-    //  )}
-    // </div>
+     <div style={{paddingTop:"50px",paddingLeft:"50px", width:"100%", height:"100%"}}>
+     <Routes>
+      {state.switchCase?.map((obj, index)=>
+        <Route path={obj.path} element={<obj.comp app={app}/>} />
+      )}
+      
+
+</Routes>
+</div>
+     </div>
+
+     
+     </BrowserRouter>
+
+    
   )}
 }
